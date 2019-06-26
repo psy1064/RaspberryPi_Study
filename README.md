@@ -1,5 +1,5 @@
 ---
-
+This repository is for uploding about sensor and server sample code in raspberrypi.
 
 ---
 
