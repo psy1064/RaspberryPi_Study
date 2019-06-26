@@ -7,12 +7,7 @@
 <h2 id="준비물">1. 준비물</h2>
 <ol>
 <li>Raspbian Image File</li>
-<li>Etcher Flash Program</li>
-</ol>
-<ul>
-<li>Raspian Image File을 Micro SD card에 구워주는 프로그램</li>
-</ul>
-<ol start="3">
+<li>Etcher Flash Program : Raspian Image File을 Micro SD card에 구워주는 프로그램</li>
 <li>Micro SD card</li>
 </ol>
 <h2 id="raspbian">2. Raspbian</h2>
