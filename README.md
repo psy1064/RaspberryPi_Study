@@ -25,8 +25,7 @@
 <hr>
 <h1 id="라즈비안-초기-설정">2. 라즈비안 초기 설정</h1>
 <h2 id="언어-설정">언어 설정</h2>
-<p>미국식 키보드를 이용해서 프로그래밍을 진행해기 위해선 언어를 먼저 설정해야 한다.  터미널에서 <code>sudo raspi-config</code>  명령어를 입력하고 여기서 4. Localisation Options를 선택하고<br>
-I1. Change Locale을 선택한다.</p>
+<p>미국식 키보드를 이용해서 프로그래밍을 진행해기 위해선 언어를 먼저 설정해야 한다.  터미널에서 <code>sudo raspi-config</code>  명령어를 입력하고 여기서 4. Localisation Options를 선택하고 I1. Change Locale을 선택한다.</p>
 <p><img src="https://lh3.googleusercontent.com/jf6NaNrnQz9V4mYSeHJSjWK40GugmB3xlclWZKfUV_h2_iCF8fs4b-fxwO4z0S6g5JFfBmc8P7en" alt="enter image description here"><img src="https://lh3.googleusercontent.com/XfPfOMYrP7adrWn8EAeDBpDaoVAa0qfOaBS3ZS8nvxNUBMM7rTcEmvdCotLz2NzTIF2CLF-FVln1" alt="enter image description here"><img src="https://lh3.googleusercontent.com/gT6ooJcsZuhneDBzonew2sxjV4FhNnrLTQPI58wt6ZmjwSXOprZbz-GkvdQXAgvZZ2FIy-xTrfif" alt="enter image description here"></p>
 <p>Change Locale 항목을 선택하고 들어가면 여러 언어의 옵션이 있는데 키보드의 방향키를 이용해서 en_GB,UTF-8 UTF-8, en_US.UTF-8 UTF-8을 스페이스바를 눌러서 선택해준다.<br>
 <img src="https://lh3.googleusercontent.com/16M1nwsvLevI_Aokd5qw8vlk8BhCX9bhgwZ0jKliTB7SB8BE7X1FrSUz6ZDOuCMJ7hm56e-7MlpA" alt="enter image description here"><br>
