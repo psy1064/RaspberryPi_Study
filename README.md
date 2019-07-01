@@ -53,8 +53,18 @@
 <img src="https://lh3.googleusercontent.com/1k_mYhgaWKOfHSbIMc8Ylt4d-sM4iMl31vOv1_H_G-bWafIGhGLttapkKaq_hPqlQdTR1NUyVac8" alt="enter image description here"><br>
 <img src="https://lh3.googleusercontent.com/tCsRp2qNhb2_jAbGBRu3R7QihR7MmcCLj-J_FCM_iCogXZJRq7Pn4ROBxUdiWAA3eylWCzybFh6c" alt=""><br>
 <img src="https://lh3.googleusercontent.com/nFFNv6gPusc6xm20a9aQowCD-wYJ3dRJjf5SUbYFoLqPpn860Oufv721BeivlIPSs5iC6R_pJfc2" alt=""></p>
-# RaspberryPi_Study
-- Repository to upload RaspberryPi sensor and server sample code 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMzgzMzExODI2XX0=
--->
+<h1 id="wiringpi를-이용한-gpio-프로그래밍">4. wiringPi를 이용한 GPIO 프로그래밍</h1>
+<h2 id="wiringpi">1. wiringPi</h2>
+<p>wiringPi는 라즈베리파이에서 사용하는 GPIO 사용을 위한 C언어 라이브러리다. wiringPi를 이용하면 아두이노같은 문법으로 사용할 수 있다.</p>
+<h2 id="설치">2. 설치</h2>
+<p>터미널에 <code>git clone git://git.drogon.net/wiringPi</code>를 입력해서 wiringPi 소스코드를 다운받은 후 빌드해서 설치하면 된다.</p>
+<p><img src="https://lh3.googleusercontent.com/LH21Bo7DRlZRI0oDJuSYczVzWceWiaNQGdkl940PRZ15RYeqAj5CfAe4R4p-pZVzLKwpoU3ZYDKt" alt="enter image description here"><br>
+<img src="https://lh3.googleusercontent.com/UKLjeH_l7PQJPNLGLUijVbHVsZ7Uuna3Lf_0zSXXDJmNWExsN27NlovcbUn64zqhm9tJ6TFfWuqy" alt="enter image description here"><br>
+<img src="https://lh3.googleusercontent.com/9EE8_7GQQ85nMEqJ1-3btKYc1ql7NfMfrpIZwvB7LO0myj2l_fqoC6ehe4mGmdY-bzGtoCYLB8Mh" alt="enter image description here"></p>
+<h2 id="wiringpi를-이용한-프로그래밍">3. wiringPi를 이용한 프로그래밍</h2>
+<ul>
+<li>dht11</li>
+<li>servo motor</li>
+<li>pms7003</li>
+</ul>
+
