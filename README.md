@@ -63,7 +63,7 @@
 <img src="https://lh3.googleusercontent.com/9EE8_7GQQ85nMEqJ1-3btKYc1ql7NfMfrpIZwvB7LO0myj2l_fqoC6ehe4mGmdY-bzGtoCYLB8Mh" alt="enter image description here"></p>
 <h2 id="wiringpi를-이용한-프로그래밍">3. wiringPi를 이용한 프로그래밍</h2>
 <ul>
-<li>dht11</li>
+<li></li>
 <li>servo motor</li>
 <li>pms7003</li>
 </ul>
