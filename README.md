@@ -53,7 +53,15 @@
 <img src="https://lh3.googleusercontent.com/1k_mYhgaWKOfHSbIMc8Ylt4d-sM4iMl31vOv1_H_G-bWafIGhGLttapkKaq_hPqlQdTR1NUyVac8" alt="enter image description here"><br>
 <img src="https://lh3.googleusercontent.com/tCsRp2qNhb2_jAbGBRu3R7QihR7MmcCLj-J_FCM_iCogXZJRq7Pn4ROBxUdiWAA3eylWCzybFh6c" alt=""><br>
 <img src="https://lh3.googleusercontent.com/nFFNv6gPusc6xm20a9aQowCD-wYJ3dRJjf5SUbYFoLqPpn860Oufv721BeivlIPSs5iC6R_pJfc2" alt=""></p>
-<h1 id="wiringpi를-이용한-gpio-프로그래밍">4. wiringPi를 이용한 GPIO 프로그래밍</h1>
+<h1 id="samba-서버-접속과-설치방법">4. Samba 서버 접속과 설치방법</h1>
+<h2 id="삼바samba란">1. 삼바(Samba)란?</h2>
+<p>Windows 운영체제를 사용하는 PC에서 Linux 또는 Unix 서버에 접속하여 파일이나 프린터를 공유하여 사용할 수 있도록 해주는 소프트웨어이다.</p>
+<h2 id="삼바-설치">2. 삼바 설치</h2>
+<p>터미널에서 <code>sudo apt-get update</code>을 입력하여 업데이트를 해준 다음 <code>sudo apt-get install samba samba-common-bin</code>명령어를 이용하여 설치한다.</p>
+<p><img src="https://lh3.googleusercontent.com/c5bFenfNTbJHpnagp-2DEFiFZZe-GEpE1rg9hrF-RGwxCw270AeED2Lz_idlfsyY3o8ca_hbnwnx" alt="enter image description here"></p>
+<h2 id="삼바-유저-추가-및-패스워드-설정">3. 삼바 유저 추가 및 패스워드 설정</h2>
+<p><code>sudo smbpasswd -a pi</code>명령어를</p>
+<h1 id="wiringpi를-이용한-gpio-프로그래밍">5. wiringPi를 이용한 GPIO 프로그래밍</h1>
 <h2 id="wiringpi">1. wiringPi</h2>
 <p>wiringPi는 라즈베리파이에서 사용하는 GPIO 사용을 위한 C언어 라이브러리다. wiringPi를 이용하면 아두이노같은 문법으로 사용할 수 있다.</p>
 <h2 id="설치">2. 설치</h2>
