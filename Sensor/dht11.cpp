@@ -44,7 +44,7 @@ void dht11::GetData()
 	char data;
 	char state = HIGH;
 	cout << "Phase 3" << endl;
-	
+
 	for(int i = 0 ; i < 40 ; i++)
 	{
 		while(digitalRead(DHT11) == state)
