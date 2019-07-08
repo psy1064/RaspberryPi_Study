@@ -24,7 +24,6 @@ dht11::dht11()
 }
 void dht11::Send()
 {
-	cout << "Phase 1" << endl;
 	pinMode(DHT11, OUTPUT);		// MCU send out start siganl
 	digitalWrite(DHT11, LOW);	// and pulls down voltage
 	delay(20);			// for at least 18ms to let DHT11 detect the signal
@@ -33,7 +32,6 @@ void dht11::Send()
 } // 5.2 MCU Sends out Start Signal to DHT
 void dht11::Response()
 {
-	cout << "Phase 2" << endl;
 	pinMode(DHT11, INPUT);
 
 	while(digitalRead(DHT11)!=LOW);  // DHT send out a low-voltage-level response signal
@@ -42,7 +40,6 @@ void dht11::Response()
 } // 5.3 DHT Response to MCU
 int dht11::GetData()
 {
-	cout << "Phase 3" << endl;
 	int count = 0;
 	int j;
 	for(j = 0 ; j < 40 ; j++)
@@ -52,39 +49,40 @@ int dht11::GetData()
 		{
 			delayMicroseconds(1);
 			count++;
-			if(count >= 255) return 1; 	// start to transmit 1-bit data(50us)
-		}
+			if(count >= 255) return -1; 	// start to transmit 1-bit data(50us)
+		} // When DHT is sending data to MCU, every bit of data begins with the 50us low-voltage-level
 		count = 0;
 		while(digitalRead(DHT11) == HIGH)
 		{
 			delayMicroseconds(1);
 			count++;
-			if(count >= 255) return 2;
+			if(count >= 255) return -1;
 		}
 		data[j/8] <<= 1;
 		if(count > 30)
 		{
 			data[j/8] |= 1;
-		}
+		} // the length of the following high-voltage-level signal determines whether data bit is "0" or "1"
+		  // 26-28us voltage-length means data "0"
+		  // 70us voltage-length means data "1"
 	}
 
 	if((j>=40)&&(data[4] == data[0] + data[1] + data[2] + data[3]))
 	{
 		printf("hum = %d, temp = %d\n", data[0], data[2]);
-		return 3;
+		return -1;
 	}
 	else
 	{
 		cout << "error";
-		return 4;
-	}
+		return -1;
+	} // parity bit(data[4])
 }
 void dht11::Process()
 {
 	Send();
 	Response();
 	int result = GetData();
-	delay(1000);			// wait 1s
 }
 int main()
 {
@@ -92,5 +90,8 @@ int main()
 		exit(1);
 	dht11 mdht11;
 	while(1)
+	{
 		mdht11.Process();
+		delay(1000);		// wait 1s
+	}
 }
