@@ -7,13 +7,13 @@
 using namespace std;
 
 class dht11{
-	int data[5];
+	uint8_t data[5];
 public:
 	dht11();
 	void Send();
 	void Response();
 	void Process();
-	void GetData();
+	int GetData();
 };
 dht11::dht11()
 {
@@ -38,44 +38,52 @@ void dht11::Response()
 
 	while(digitalRead(DHT11)!=LOW);  // DHT send out a low-voltage-level response signal
 	while(digitalRead(DHT11)!=HIGH); // DHT pulls up voltage and keeps it for 80us and prepares for data transmisson
+	while(digitalRead(DHT11)!=LOW);
 } // 5.3 DHT Response to MCU
-void dht11::GetData()
+int dht11::GetData()
 {
 	cout << "Phase 3" << endl;
 	int count = 0;
-	for(int i = 0 ; i < 5 ; i++)
+	int j;
+	for(j = 0 ; j < 40 ; j++)
 	{
-		for(int j = 0 ; j < 8 ; j++)
+		count = 0;
+		while(digitalRead(DHT11) == LOW)
 		{
-			while(digitalRead(DHT11) != LOW);	// start to transmit 1-bit data(50us)
-			while(digitalRead(DHT11) != HIGH);
-			while(digitalRead(DHT11))
-			{
-				count++;
-				delayMicroseconds(1);
-			}
-			if(count > 30)
-			{
-				data[i] <<= 1;
-				data[i] |= 1;
-			}
-			else
-			{
-				data[i] <<= 1;
-			}
-			count = 0;
+			delayMicroseconds(1);
+			count++;
+			if(count >= 255) return 1; 	// start to transmit 1-bit data(50us)
+		}
+		count = 0;
+		while(digitalRead(DHT11) == HIGH)
+		{
+			delayMicroseconds(1);
+			count++;
+			if(count >= 255) return 2;
+		}
+		data[j/8] <<= 1;
+		if(count > 30)
+		{
+			data[j/8] |= 1;
 		}
 	}
-	if(data[4] == data[0] + data[1] + data[2] + data[3])
-		cout << "correct" << endl;
+
+	if((j>=40)&&(data[4] == data[0] + data[1] + data[2] + data[3]))
+	{
+		printf("hum = %d, temp = %d\n", data[0], data[2]);
+		return 3;
+	}
 	else
-		cout << "Not correct" << endl;
+	{
+		cout << "error";
+		return 4;
+	}
 }
 void dht11::Process()
 {
 	Send();
 	Response();
-	GetData();
+	int result = GetData();
 	delay(1000);			// wait 1s
 }
 int main()
