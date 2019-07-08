@@ -53,6 +53,11 @@
 <img src="https://lh3.googleusercontent.com/1k_mYhgaWKOfHSbIMc8Ylt4d-sM4iMl31vOv1_H_G-bWafIGhGLttapkKaq_hPqlQdTR1NUyVac8" alt="enter image description here"><br>
 <img src="https://lh3.googleusercontent.com/tCsRp2qNhb2_jAbGBRu3R7QihR7MmcCLj-J_FCM_iCogXZJRq7Pn4ROBxUdiWAA3eylWCzybFh6c" alt=""><br>
 <img src="https://lh3.googleusercontent.com/nFFNv6gPusc6xm20a9aQowCD-wYJ3dRJjf5SUbYFoLqPpn860Oufv721BeivlIPSs5iC6R_pJfc2" alt=""></p>
+<h2 id="고정-ip주소-할당">3. 고정 IP주소 할당</h2>
+<p>먼저 <code>netstat -nr</code> 명령어를 입력해 gateway 주소를 확인하고 <code>sudo nano /etc/dhcpcd.conf</code> 명령어를 입력한다.</p>
+<p><img src="https://lh3.googleusercontent.com/-2UQGauDdjacj47xbXc10XDzKD1UwuXxFFWhTudasB6e6rU_kxbH4sXKnI6ZAGD_jT_5qk-tK7oQ" alt="enter image description here"><br>
+<img src="https://lh3.googleusercontent.com/Szp4FImltjrTikLctZW-p_VntbXD9_lQc4qQ1SriMCPmPGd3UGXvstbwKi77VAqpPCVFMqPzDNCd" alt="enter image description here"></p>
+<p>static ip_address, static routers, static domain_name_servers의 주석을 지우고 하얗게 칠한 부분을 ip_address는 원하는 IP주소, domain_name_servers에는 <code>netstat -nr</code> 로 확인한 gateway 주소를 입력한다. 그 후 <code>sudo reboot</code> 를 이용해 재부팅한 후 <code>ifconfig</code> 로 다시 아이피를 확인해보면 설정한 IP가 할당되어 있다.</p>
 <h1 id="samba-서버-접속과-설치방법">4. Samba 서버 접속과 설치방법</h1>
 <h2 id="삼바samba란">1. 삼바(Samba)란?</h2>
 <p>Windows 운영체제를 사용하는 PC에서 Linux 또는 Unix 서버에 접속하여 파일이나 프린터를 공유하여 사용할 수 있도록 해주는 소프트웨어이다.</p>
