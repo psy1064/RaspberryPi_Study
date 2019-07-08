@@ -2,13 +2,12 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstdint>
-
 #include <wiringPi.h>
-#define DHT11 1
+#define DHT11 0
 using namespace std;
 
 class dht11{
-	uint8_t RH_i, RH_d, TP_i, TP_d, checksum;
+	int data[5];
 public:
 	dht11();
 	void Send();
@@ -18,16 +17,19 @@ public:
 };
 dht11::dht11()
 {
-	RH_i = RH_d, TP_i, TP_d, checksum = 0;
+	for(int i = 0 ; i < 5 ; i++)
+	{
+		data[i] = 0;
+	}
 }
 void dht11::Send()
 {
 	cout << "Phase 1" << endl;
 	pinMode(DHT11, OUTPUT);		// MCU send out start siganl
-	digitalWrite(DHT11, LOW);	// and pulls down voltage 
+	digitalWrite(DHT11, LOW);	// and pulls down voltage
 	delay(20);			// for at least 18ms to let DHT11 detect the signal
-	digitalWrite(DHT11, HIGH);	// MCU pulls up voltage and 
-	delayMicroseconds(40);		// waits for DHT respons(20~40)us
+	digitalWrite(DHT11, HIGH);	// MCU pulls up voltage
+	delayMicroseconds(30);		// and waits for DHT respons(20~40)us
 } // 5.2 MCU Sends out Start Signal to DHT
 void dht11::Response()
 {
@@ -36,23 +38,38 @@ void dht11::Response()
 
 	while(digitalRead(DHT11)!=LOW);  // DHT send out a low-voltage-level response signal
 	while(digitalRead(DHT11)!=HIGH); // DHT pulls up voltage and keeps it for 80us and prepares for data transmisson
-	while(digitalRead(DHT11)!=LOW);  // start to transmit 1-bit data (50us)
 } // 5.3 DHT Response to MCU
 void dht11::GetData()
 {
-	int count = 0;
-	char data;
-	char state = HIGH;
 	cout << "Phase 3" << endl;
-
-	for(int i = 0 ; i < 40 ; i++)
+	int count = 0;
+	for(int i = 0 ; i < 5 ; i++)
 	{
-		while(digitalRead(DHT11) == state)
+		for(int j = 0 ; j < 8 ; j++)
 		{
-			count ++;
-			delayMicroseconds(1);
+			while(digitalRead(DHT11) != LOW);	// start to transmit 1-bit data(50us)
+			while(digitalRead(DHT11) != HIGH);
+			while(digitalRead(DHT11))
+			{
+				count++;
+				delayMicroseconds(1);
+			}
+			if(count > 30)
+			{
+				data[i] <<= 1;
+				data[i] |= 1;
+			}
+			else
+			{
+				data[i] <<= 1;
+			}
+			count = 0;
 		}
 	}
+	if(data[4] == data[0] + data[1] + data[2] + data[3])
+		cout << "correct" << endl;
+	else
+		cout << "Not correct" << endl;
 }
 void dht11::Process()
 {
