@@ -98,7 +98,5 @@ browable = 공유 폴더의 목록을 보여주는 옵션</p>
 <li><a href="https://www.mouser.com/ds/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf">dht11_datasheet</a></li>
 </ul>
 </li>
-<li>servo motor</li>
-<li>pms7003</li>
 </ul>
 
