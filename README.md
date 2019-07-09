@@ -93,7 +93,11 @@ browable = 공유 폴더의 목록을 보여주는 옵션</p>
 <img src="https://lh3.googleusercontent.com/9EE8_7GQQ85nMEqJ1-3btKYc1ql7NfMfrpIZwvB7LO0myj2l_fqoC6ehe4mGmdY-bzGtoCYLB8Mh" alt="enter image description here"></p>
 <h2 id="wiringpi를-이용한-프로그래밍">3. wiringPi를 이용한 프로그래밍</h2>
 <ul>
-<li></li>
+<li><a href="https://github.com/psy1064/RaspberryPi_Study/blob/master/Sensor/dht11.cpp">dht11</a>
+<ul>
+<li><a href="https://www.mouser.com/ds/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf">dht11_datasheet</a></li>
+</ul>
+</li>
 <li>servo motor</li>
 <li>pms7003</li>
 </ul>
