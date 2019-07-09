@@ -65,7 +65,24 @@
 <p>터미널에서 <code>sudo apt-get update</code>을 입력하여 업데이트를 해준 다음 <code>sudo apt-get install samba samba-common-bin</code>명령어를 이용하여 설치한다.</p>
 <p><img src="https://lh3.googleusercontent.com/c5bFenfNTbJHpnagp-2DEFiFZZe-GEpE1rg9hrF-RGwxCw270AeED2Lz_idlfsyY3o8ca_hbnwnx" alt="enter image description here"></p>
 <h2 id="삼바-유저-추가-및-패스워드-설정">3. 삼바 유저 추가 및 패스워드 설정</h2>
-<p><code>sudo smbpasswd -a pi</code>명령어를</p>
+<p>설치가 완료되었다면 <code>sudo smbpasswd -a pi</code> 명령어를 입력해 비밀번호를 설정해야 한다. 설정한 다음 <code>sudo nano /etc/samba/smb.conf</code>로 들어간다.<br>
+<img src="https://lh3.googleusercontent.com/dH5xzGXhtb9WRwmnQr8aPiz7A-14xoHi3JBZj_ik3M3e00KhBgydRTgi9m85cTiJroPdXQyc0baQ" alt="enter image description here"></p>
+<p>smb.conf 파일에 들어온 후 다음과 같이 수정한다.<br>
+<img src="https://lh3.googleusercontent.com/4jAWtqjKE-X5YSvtDoWpzGQVMoZNC-DQno6_mmP4IOtBL8YEMsf5H9bdNjDdo0GWZD2F4GpanFgT" alt="enter image description here"></p>
+<blockquote>
+<p>comment = 유저 서버 설정에 대한 코멘트<br>
+path = 삼바 서버 접속 시 최초 화면<br>
+vaild user = 사용 가능한 유저<br>
+writable = 쓰기 허용 여부<br>
+read only = 읽기만 가능하게 하는 지<br>
+browable = 공유 폴더의 목록을 보여주는 옵션</p>
+</blockquote>
+<p>을 입력 후 에디터를 빠져나오고 <code>sudo service samba restart</code> 명령어를 입력해 서비스를 재실행 시켜준다. 만약 다음과 같이 <code>Failed to restart samba.service</code> 오류가 뜨게 된다면 <code>sudo service smbd restart</code> 명령어로 재실행 시켜준다.<img src="https://lh3.googleusercontent.com/4YE5_LFK2oRV34yGpW5Sf2BQB6GSuXgAVvos98rh0QhRFwIGxIHUB5bLA_wXGe0FTTMGgSsqX6i1" alt="enter image description here"></p>
+<h2 id="삼바-접속">4. 삼바 접속</h2>
+<p>라즈베리파이쪽에서 설정을 모두 했다면 윈도우 R키를 눌러 실행창에 들어간 후 다음과 같이 입력해준다.<br>
+<img src="https://lh3.googleusercontent.com/Wr1qgs0_9qOk2p5ExkQVJy77o9f90gXaXC2pDXIaWOuf9vPuF4R90dRXKc49ZRWI38bttnIJNb4q" alt="enter image description here"></p>
+<p>다음과 같은 창이 뜨게 된다면 설정해준 id, password를 입력해주면 된다.<br>
+<img src="https://lh3.googleusercontent.com/g-JyJI9n2DPWx0AK1lvsJ9la1IACYUU-YNtEbrvds9HBMUONMHgBoZcIs-7Wa38v8RzFixPcS3Qe" alt="enter image description here"></p>
 <h1 id="wiringpi를-이용한-gpio-프로그래밍">5. wiringPi를 이용한 GPIO 프로그래밍</h1>
 <h2 id="wiringpi">1. wiringPi</h2>
 <p>wiringPi는 라즈베리파이에서 사용하는 GPIO 사용을 위한 C언어 라이브러리다. wiringPi를 이용하면 아두이노같은 문법으로 사용할 수 있다.</p>
