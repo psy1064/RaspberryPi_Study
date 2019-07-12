@@ -160,12 +160,17 @@ wiringPi는 라즈베리파이에서 사용하는 GPIO 사용을 위한 C언어 
 ![enter image description here](https://lh3.googleusercontent.com/UKLjeH_l7PQJPNLGLUijVbHVsZ7Uuna3Lf_0zSXXDJmNWExsN27NlovcbUn64zqhm9tJ6TFfWuqy)  
 ![enter image description here](https://lh3.googleusercontent.com/9EE8_7GQQ85nMEqJ1-3btKYc1ql7NfMfrpIZwvB7LO0myj2l_fqoC6ehe4mGmdY-bzGtoCYLB8Mh)
 
+정상적으로 설치가 완료되었다면 gpio readall 명령어를 입력하면 다음과 같이 본인 파이의 gpio map이 출력된다.
+![enter image description here](https://lh3.googleusercontent.com/3uFqBq8KYX30ISB98RvvAEc2ND3tPthxGfsItACH5Mv4bpod4M1phvQ-pgBlx9w3qZZtmaKFeyOt)
+
+여기서 Physical은 파이 우측 상단에 있는 핀 배열이고 그에 해당하는 이름들, 우리가 사용되는 wPi가 있다. wiringPi를 이용하여 프로그래밍할때는 Physical의 번호가 아닌 wPi의 번호를 이용해 프로그래밍한다.
+
 ## 3\. wiringPi를 이용한 프로그래밍
 
 *   [dht11](https://github.com/psy1064/RaspberryPi_Study/blob/master/Sensor/dht11.cpp)
     *   [dht11_datasheet](https://www.mouser.com/ds/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf)" alt=""></p>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4MTQ2MjczNSwtMjAxOTIzMDE5OSwxMz
-c1MTE0Mjg5XX0=
+eyJoaXN0b3J5IjpbLTgzMTE3MTgyMywxMTgxNDYyNzM1LC0yMD
+E5MjMwMTk5LDEzNzUxMTQyODldfQ==
 -->
