@@ -139,7 +139,10 @@ smb.conf 파일에 들어온 후 다음과 같이 수정한다.
 설치가 완료됐으면 `sudo /usr/bin/rdate -s time.bora.net`을 입력 후 `date`를  실행해 확인해보면 시간이 제대로 설정된것을 볼 수 있다.
 // 사진 //
 
-부팅 시 마다 위와 같은 실행을 자동으로 해주기 위해 `sudo nano /etc/rc.loca
+부팅 시 마다 위와 같은 실행을 자동으로 해주기 위해 `sudo nano /etc/rc.local` 로 파일을 열어 전에 했던 명령어들을 아래와 같이 입력해준다.
+// 사진 //
+
+에디터를 빠져나와 재부팅을 해보면 다음과 같이 제대로 적용된 것을 확인할 수 있다.
 
 # 6\. wiringPi를 이용한 GPIO 프로그래밍
 
@@ -161,5 +164,5 @@ wiringPi는 라즈베리파이에서 사용하는 GPIO 사용을 위한 C언어 
     *   [dht11_datasheet](https://www.mouser.com/ds/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf)" alt=""></p>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTY0NTU0MDQsMTM3NTExNDI4OV19
+eyJoaXN0b3J5IjpbLTkyNTkzMjMzOSwxMzc1MTE0Mjg5XX0=
 -->
