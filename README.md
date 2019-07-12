@@ -125,7 +125,7 @@ smb.conf 파일에 들어온 후 다음과 같이 수정한다.
 
 다음과 같은 창이 뜨게 된다면 설정해준 id, password를 입력해주면 된다.  
 ![enter image description here](https://lh3.googleusercontent.com/g-JyJI9n2DPWx0AK1lvsJ9la1IACYUU-YNtEbrvds9HBMUONMHgBoZcIs-7Wa38v8RzFixPcS3Qe)
-# 5. dfddfdfsdfasdfa
+# 5. fdfdf
 f
 # 6\. wiringPi를 이용한 GPIO 프로그래밍
 
@@ -146,5 +146,5 @@ wiringPi는 라즈베리파이에서 사용하는 GPIO 사용을 위한 C언어 
 *   [dht11](https://github.com/psy1064/RaspberryPi_Study/blob/master/Sensor/dht11.cpp)
     *   [dht11_datasheet](https://www.mouser.com/ds/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTcwODUyMjFdfQ==
+eyJoaXN0b3J5IjpbMTEwOTMwMDkxMV19
 -->
