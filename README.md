@@ -132,6 +132,7 @@ smb.conf 파일에 들어온 후 다음과 같이 수정한다.
 # 5. 시간 동기화
 자료출처
 - 워터마크, 라즈베리파이 시간 동기화, [https://m.blog.naver.com/PostView.nhn?blogId=xhxhdwkd&logNo=221146006051&proxyReferer=https%3A%2F%2Fwww.google.com%2F](https://m.blog.naver.com/PostView.nhn?blogId=xhxhdwkd&logNo=221146006051&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
+
 라즈베리파이는 RTC(Real Time Clock) 기능이 없어 부팅시에 시간을 설정해줘야하는 단점이 있다. 부팅할때 마다 자동으로 시간을 동기화해주는 작업을 해줄 예정이다.
 
 먼저 `sudo apt-get update`를 실행해주고, 다음으로 `sudo apt-get install rdate` 를 입력해준다.
@@ -165,6 +166,6 @@ wiringPi는 라즈베리파이에서 사용하는 GPIO 사용을 위한 C언어 
     *   [dht11_datasheet](https://www.mouser.com/ds/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf)" alt=""></p>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczMTMzNjU3MywtMjAxOTIzMDE5OSwxMz
+eyJoaXN0b3J5IjpbMTE4MTQ2MjczNSwtMjAxOTIzMDE5OSwxMz
 c1MTE0Mjg5XX0=
 -->
