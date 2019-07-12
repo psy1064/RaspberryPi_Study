@@ -1,33 +1,35 @@
 
---- ---
+--- 
+
+
+---
 
 # 1\. 라즈비안 설치
 
-## 1\. 준비물
-
-1.  Raspbian Image File
+## 1\. 준비물1."Raspbian Image File
 2.  Etcher Flash Program : Raspian Image File을 Micro SD card에 구워주는 프로그램
 3.  Micro SD card
 
 ## 2\. Raspbian
 
-[Raspbian 다운로드](https://www.raspberrypi.org/downloads/raspbian/) 링크로 들어가서 네모버튼을 클릭하여 ZIP 파일 다운로드 후 압축 해제를 한다.![](https://t1.daumcdn.net/cfile/tistory/99F5B94A5CC5672D23)
+[Raspbian](</h2>
+<https://www.raspberrypi.org/downloads/raspbian/) 링크로 들어가서 네모버튼을 클릭하여 ZIP 파일 다운로드 후 압축 해제를 한다.![](https://t1.daumcdn.net/cfile/tistory/99F5B94A5CC5672D23)
 
-## 3\. Etcher Flash Program
+## 3\. Etcher Flashrogram
 
-[Etcher Flash Program 다운로드](https://www.balena.io/etcher/)로 들어가서 Download for Windows를 눌러 프로그램 다운로드를 한다.
+cher Flash Program 다운로드](https://www.balena.io/etcher/)로 들어가서 Download for Windows를 눌러 프로그램 다운로드를 한다.
 
 프로그램을 실행하면 다음과 같은 창이 뜨게 되는데 Select image 버튼을 클릭하여 다운받은 Raspbian Image File을 선택한다.  
 ![enter image description here](https://lh3.googleusercontent.com/OJrmiay_Bg-pS5ndXuOxJLts66m-MrHnzg6fQ2WEeIM3m41VutFE8tzUEVT40GbQm8ePhHD1MDfu)
 
-Micro SD Card가 삽입된 USB를 선택하고 Flash 버튼을 누르게 되면  
+enter image descrMicro SD Card가 삽입된 USB를 선택하고 Flash 버튼을 누르게 되면  
 ![enter image description here](https://lh3.googleusercontent.com/VbEAJaGesbnbb5zG0Tk_chEsrQpDrv8uHoDjCeTLBojoE_xyPhedbYlw34aaoKW2fXLnRitMxjPH)
 
 Flash가 진행된다.  
-![enter image description here](https://lh3.googleusercontent.com/zAAQSRIuLnmPF-IJaRYPdaGjNHEIF2_5AvJNOkSQM7Xps8dmSje9Hp_4fTya2T9rUnvbfReia5-5)
+![iption here](https://lh3.googleusercontent.com/zAAQSRIuLnmPF-IJaRYPdaGjNHEIF2_5AvJNOkSQM7Xps8dmSje9Hp_4fTya2T9rUnvbfReia5-5)
 
 Flash가 완료되면 Micro SD Card를 Reader기에서 제거 후 Raspberrypi에 꽂아준다.  
-![enter image description here](https://lh3.googleusercontent.com/MLg-wpzbFG_BAHkuUWAmZfl5LFu8VWzEMnRshCcKA7JnINuM853s5oSovFvFFGVLad4NshaKZc5h)
+![enter image description here](<bhttps://lh3.googleusercontent.com/MLg-wpzbFG_BAHkuUWAmZfl5LFu8VWzEMnRshCcKA7JnINuM853s5oSovFvFFGVLad4NshaKZc5h)
 
 * * *
 
@@ -35,7 +37,7 @@ Flash가 완료되면 Micro SD Card를 Reader기에서 제거 후 Raspberrypi에
 
 ## 언어 설정
 
-미국식 키보드를 이용해서 프로그래밍을 진행해기 위해선 언어를 먼저 설정해야 한다. 터미널에서 `sudo raspi-config` 명령어를 입력하고 여기서 4\. Localisation Options를 선택하고 I1\. Change Locale을 선택한다.
+미국식 키보드를 이용해서 프로그래밍을 진행해기 위해선 언어를 먼저 설정해야 한다. 터미널에서 sudo raspi-config` 명령어를 입력하고 여기서 4\. Localisation Options를 선택하고 I1\. Change Locale을 선택한다.
 
 ![enter image description here](https://lh3.googleusercontent.com/jf6NaNrnQz9V4mYSeHJSjWK40GugmB3xlclWZKfUV_h2_iCF8fs4b-fxwO4z0S6g5JFfBmc8P7en)![enter image description here](https://lh3.googleusercontent.com/XfPfOMYrP7adrWn8EAeDBpDaoVAa0qfOaBS3ZS8nvxNUBMM7rTcEmvdCotLz2NzTIF2CLF-FVln1)![enter image description here](https://lh3.googleusercontent.com/gT6ooJcsZuhneDBzonew2sxjV4FhNnrLTQPI58wt6ZmjwSXOprZbz-GkvdQXAgvZZ2FIy-xTrfif)
 
@@ -58,20 +60,22 @@ Generic 105-key PC (intl.)을 선택하고 엔터를 눌러준다. 그리고 Kor
 
 # 3\. putty를 이용한 원격접속
 
-## 1\. SSH Enable
+## 1\iption here"></p>
+<h1 id="putty를-이용한-원격접속">3. putty를 이용한 원격접속</h1>
+<h2 id="ssh-enable">1. SSH Enable
 
 putty를 이용하여 원격접속을 하기위해서는 먼저 SSH를 활성화 시켜줘야 한다. 터미널에서 `sudo raspi-config` 명령어를 입력한다. 여기서 5\. Interfacing Options > P2 SSH 를 선택한다.
 
 ![enter image description here](https://lh3.googleusercontent.com/SJTPs2tVLIfv9bVLgGdoILUZCrR-sYzmtvg6lYvpW39LIRgFHX06e9onA8-V-2pgFmoSEvMvzZBb)  
-![enter image description here](https://lh3.googleusercontent.com/M9h2WbNABtGxh2SdSwGTmFuZ3ZschxtcnwbQAHvjuG65ptL7GyLYCV4S_RxkbKhy_a-fX22VnNqp)
+![enter image description here](">https://lh3.googleusercontent.com/M9h2WbNABtGxh2SdSwGTmFuZ3ZschxtcnwbQAHvjuG65ptL7GyLYCV4S_RxkbKhy_a-fX22VnNqp)
 
-다음과 같은 창이 뜨게되면 Yes를 선택하고 엔터를 눌러주면 SSH가 활성화 된다.  
-![enter image description here](https://lh3.googleusercontent.com/B3tV66S6zyUZOmSRvAbo0KP12FbuVApuMUIMUgnwSXHbxVJ9sqLNS6OFSvJxVPvmnBhcoThtB6ue)  
+" alt="enter image descr다음과 같은 창이 뜨게되면 Yes를 선택하고 엔터를 눌러주면 SSH가 활성화 된다.  
+![enter image description herehttps://lh3.googleusercontent.com/B3tV66S6zyUZOmSRvAbo0KP12FbuVApuMUIMUgnwSXHbxVJ9sqLNS6OFSvJxVPvmnBhcoThtB6ue)  
 ![enter image description here](https://lh3.googleusercontent.com/FoVQaJ02u76ft6UxEsVkYizb5shGTTiI7aUBLnFoLGrMM2m8qWjZHwy9C_FWtcvoytV3OhiFXJ7e)
 
 ## 2\. IP 주소 확인
 
-ssh를 활성화를 했다면 IP 주소를 확인해야 한다. 터미널에서 `ifconfig` 로 ip addr를 확인해야 한다. 유선으로 연결했다면 eth, 무선으로 연결했다면 wlan에서 inet을 확인한다.
+ssh를 활성화를 했다면 IP 주소를 확인해야 한다. 터미널에서 `ifconfig 로 ip addr를 확인해야 한다. 유선으로 연결했다면 eth, 무선으로 연결했다면 wlan에서 inet을 확인한다.
 
 ![enter image description here](https://lh3.googleusercontent.com/eg08NMFsTG3FBrJ5cbUp8z9nnVQ3N7ARzeK1u2ZC8NEMvYIjtsYX3jbPmMZ8gb9BhF-BmN98YYHm)
 
@@ -144,7 +148,8 @@ wiringPi는 라즈베리파이에서 사용하는 GPIO 사용을 위한 C언어 
 ## 3\. wiringPi를 이용한 프로그래밍
 
 *   [dht11](https://github.com/psy1064/RaspberryPi_Study/blob/master/Sensor/dht11.cpp)
-    *   [dht11_datasheet](https://www.mouser.com/ds/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf)
+    *   [dht11_datasheet](https://www.mouser.com/ds/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf)" alt=""></p>
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM3NTExNDI4OV19
+eyJoaXN0b3J5IjpbLTE3ODEzOTE1MSwxMzc1MTE0Mjg5XX0=
 -->
