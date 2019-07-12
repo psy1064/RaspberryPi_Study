@@ -143,6 +143,7 @@ smb.conf 파일에 들어온 후 다음과 같이 수정한다.
 // 사진 //
 
 에디터를 빠져나와 재부팅을 해보면 다음과 같이 제대로 적용된 것을 확인할 수 있다.
+// 사진 // 
 
 # 6\. wiringPi를 이용한 GPIO 프로그래밍
 
@@ -164,5 +165,5 @@ wiringPi는 라즈베리파이에서 사용하는 GPIO 사용을 위한 C언어 
     *   [dht11_datasheet](https://www.mouser.com/ds/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf)" alt=""></p>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkyNTkzMjMzOSwxMzc1MTE0Mjg5XX0=
+eyJoaXN0b3J5IjpbLTIwMTkyMzAxOTksMTM3NTExNDI4OV19
 -->
