@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <cstdint>
 #include <wiringPi.h>
-#define DHT11 0
+#define DHT11 1
 using namespace std;
 
 class dht11{
@@ -36,7 +36,7 @@ void dht11::Response()
 
 	while(digitalRead(DHT11)!=LOW);  // DHT send out a low-voltage-level response signal
 	while(digitalRead(DHT11)!=HIGH); // DHT pulls up voltage and keeps it for 80us and prepares for data transmisson
-	while(digitalRead(DHT11)!=LOW);
+	while(digitalRead(DHT11)!=LOW);  // Start to transmit next bit data
 } // 5.3 DHT Response to MCU
 int dht11::GetData()
 {
@@ -74,7 +74,7 @@ int dht11::GetData()
 	}
 	else
 	{
-		cout << "error";
+		// cout << "error";
 		return -1;
 	} // parity bit(data[4])
 }
