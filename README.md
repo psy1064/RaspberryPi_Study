@@ -1,122 +1,176 @@
----
+# 1. 라즈비안 설치
+
+## 1. 준비물
+
+1. Raspbian Image File
+2. Etcher Flash Program : Raspian Image File을 Micro SD card에 구워주는 프로그램
+3. Micro SD card
+
+## 2. Raspbian
+
+[Raspbian](
+<https://www.raspberrypi.org/downloads/raspbian/) 링크로 들어가서 네모버튼을 클릭하여 ZIP 파일 다운로드 후 압축 해제를 한다.[![img](https://camo.githubusercontent.com/ab0b821cdbf5423e4fd75c23a53b52f3af4d11b6/68747470733a2f2f74312e6461756d63646e2e6e65742f6366696c652f746973746f72792f393946354239344135434335363732443233)](https://camo.githubusercontent.com/ab0b821cdbf5423e4fd75c23a53b52f3af4d11b6/68747470733a2f2f74312e6461756d63646e2e6e65742f6366696c652f746973746f72792f393946354239344135434335363732443233)
+
+## 3. Etcher Flashrogram
+
+cher Flash Program 다운로드](https://www.balena.io/etcher/)로 들어가서 Download for Windows를 눌러 프로그램 다운로드를 한다.
+
+프로그램을 실행하면 다음과 같은 창이 뜨게 되는데 Select image 버튼을 클릭하여 다운받은 Raspbian Image File을 선택한다.
+[![enter image description here](https://camo.githubusercontent.com/5ded5ab071fad17e8daa781a878c19357f13ca4b/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f4f4a726d6961795f42672d7053356e6458754f784a4c747336366d2d4d72486e7a6736665132574565494d336d3431567574464538747a5545565434304762516d386550684844314d446675)](https://camo.githubusercontent.com/5ded5ab071fad17e8daa781a878c19357f13ca4b/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f4f4a726d6961795f42672d7053356e6458754f784a4c747336366d2d4d72486e7a6736665132574565494d336d3431567574464538747a5545565434304762516d386550684844314d446675)
+
+enter image descrMicro SD Card가 삽입된 USB를 선택하고 Flash 버튼을 누르게 되면
+[![enter image description here](https://camo.githubusercontent.com/b280f617e94d962f4c77c60962fa49ab341d726e/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f566245414a61476573626e6262357a4730546b5f636845737251704472763875486f446a4365544c426f6a6f455f78795068656462596c77333461616f4b573266584c6e5269744d786a5048)](https://camo.githubusercontent.com/b280f617e94d962f4c77c60962fa49ab341d726e/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f566245414a61476573626e6262357a4730546b5f636845737251704472763875486f446a4365544c426f6a6f455f78795068656462596c77333461616f4b573266584c6e5269744d786a5048)
+
+Flash가 진행된다.
+[![iption here](https://camo.githubusercontent.com/3e22681338d1945b0b2b85c2e26a2b0240387051/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f7a414151535249754c6e6d50462d494a615259506461476a4e48454946325f3541764a4e4f6b53514d3758707338646d536a653948705f346654796132543972556e76626652656961352d35)](https://camo.githubusercontent.com/3e22681338d1945b0b2b85c2e26a2b0240387051/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f7a414151535249754c6e6d50462d494a615259506461476a4e48454946325f3541764a4e4f6b53514d3758707338646d536a653948705f346654796132543972556e76626652656961352d35)
+
+Flash가 완료되면 Micro SD Card를 Reader기에서 제거 후 Raspberrypi에 꽂아준다.
+![img](https://k.kakaocdn.net/dn/b4Gtc1/btqwGMQx1Zr/IaBoBTR7MqKdkC4bXXk7iK/img.png)
+
+# 2. 라즈비안 초기 설정
+
+## 언어 설정
+
+미국식 키보드를 이용해서 프로그래밍을 진행해기 위해선 언어를 먼저 설정해야 한다. 터미널에서 sudo raspi-config` 명령어를 입력하고 여기서 4. Localisation Options를 선택하고 I1. Change Locale을 선택한다.
+
+[![enter image description here](https://camo.githubusercontent.com/efb3b633d020339bec6643ff136bc2f2c1743427/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f6a66364e614e726e517a3956346d595365484a536a574b34304775676d4233786c636c575a4b6655565f68325f69434638667334622d6678774f347a30533667354a4666426d63385037656e)](https://camo.githubusercontent.com/efb3b633d020339bec6643ff136bc2f2c1743427/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f6a66364e614e726e517a3956346d595365484a536a574b34304775676d4233786c636c575a4b6655565f68325f69434638667334622d6678774f347a30533667354a4666426d63385037656e)[![enter image description here](https://camo.githubusercontent.com/ee56070a4c6f1253782c8bc6dbbaae08018314c6/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f586650664f4d59725037616472576e3845416544427044616f5641613071664f614253335a53386e76784e55424d4d37725463456d7664436f744c7a324e7a54494632434c462d46566c6e31)](https://camo.githubusercontent.com/ee56070a4c6f1253782c8bc6dbbaae08018314c6/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f586650664f4d59725037616472576e3845416544427044616f5641613071664f614253335a53386e76784e55424d4d37725463456d7664436f744c7a324e7a54494632434c462d46566c6e31)[![enter image description here](https://camo.githubusercontent.com/3579876c577b18c76603e27214d7a5a976e8e619/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f6754366f6f4a63735a75686e6544427a6f6e65773273786a563446684e6e724c5451504935387774365a6d6a7753584f70725a627a2d476b766451584167765a5a324649792d785472666966)](https://camo.githubusercontent.com/3579876c577b18c76603e27214d7a5a976e8e619/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f6754366f6f4a63735a75686e6544427a6f6e65773273786a563446684e6e724c5451504935387774365a6d6a7753584f70725a627a2d476b766451584167765a5a324649792d785472666966)
+
+Change Locale 항목을 선택하고 들어가면 여러 언어의 옵션이 있는데 키보드의 방향키를 이용해서 en_GB,UTF-8 UTF-8, en_US.UTF-8 UTF-8을 스페이스바를 눌러서 선택해준다.
+[![enter image description here](https://camo.githubusercontent.com/f861efa095179b415b87bdcda43ed305e319bfb6/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f31364d316e7773764c6576495f416f6b6435717738766c6b384268435839626867775a306a4b6c695442375342384245375831467253557a365a444f75434d4a37686d3536652d374d6c7041)](https://camo.githubusercontent.com/f861efa095179b415b87bdcda43ed305e319bfb6/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f31364d316e7773764c6576495f416f6b6435717738766c6b384268435839626867775a306a4b6c695442375342384245375831467253557a365a444f75434d4a37686d3536652d374d6c7041)
+[![enter image description here](https://camo.githubusercontent.com/861d991db017bdc5d5ccee11f6ebd6e2549eac55/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f6a7356753249464e5248776f517a3861514c6637734462424875537149655f384f325f43626b714d4152665f665477314d68574a754d6942536c5030667576467847312d67344d6b63636335)](https://camo.githubusercontent.com/861d991db017bdc5d5ccee11f6ebd6e2549eac55/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f6a7356753249464e5248776f517a3861514c6637734462424875537149655f384f325f43626b714d4152665f665477314d68574a754d6942536c5030667576467847312d67344d6b63636335)
+
+엔터를 누르게 되면 기본 언어를 설정하는 창이 뜨게 된다. 여기서 en_US.UTF-8 UTF-8을 기본 언어로 선택하면 된다.
+
+[![enter image description here](https://camo.githubusercontent.com/236c6029901ddf92957759ac7785ed45ec964193/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f656a586d7551726c70396b5875375542563444635f592d4131496a6c70382d6c66704f374e426b714947776d537074555531626159317553467265553876587a615f6b72615f6c3277546b35)](https://camo.githubusercontent.com/236c6029901ddf92957759ac7785ed45ec964193/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f656a586d7551726c70396b5875375542563444635f592d4131496a6c70382d6c66704f374e426b714947776d537074555531626159317553467265553876587a615f6b72615f6c3277546b35)
+
+다음으로 키보드 레이아웃 설정이다. 처음화면에서 4. Localisation Option을 선택한 후 I3. Change Keyboard Layout을 선택한다.
+
+[![enter image description here](https://camo.githubusercontent.com/ee56070a4c6f1253782c8bc6dbbaae08018314c6/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f586650664f4d59725037616472576e3845416544427044616f5641613071664f614253335a53386e76784e55424d4d37725463456d7664436f744c7a324e7a54494632434c462d46566c6e31)](https://camo.githubusercontent.com/ee56070a4c6f1253782c8bc6dbbaae08018314c6/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f586650664f4d59725037616472576e3845416544427044616f5641613071664f614253335a53386e76784e55424d4d37725463456d7664436f744c7a324e7a54494632434c462d46566c6e31)[![enter image description here](https://camo.githubusercontent.com/d279406205630c4538ec48115decbc257f8ddddb/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f795731635970487a573342724362486b33456a3548566a4a625f5755756254326d555671713576386e7635437433395175316e68692d324355704d726a556b79435461424e6d7369774a7932)](https://camo.githubusercontent.com/d279406205630c4538ec48115decbc257f8ddddb/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f795731635970487a573342724362486b33456a3548566a4a625f5755756254326d555671713576386e7635437433395175316e68692d324355704d726a556b79435461424e6d7369774a7932)
+
+Generic 105-key PC (intl.)을 선택하고 엔터를 눌러준다. 그리고 Korean - Korean (101/104 key compatible)을 선택한 후 마지막으로 No compose key를 선택한 후 엔터를 누르면 된다.
+[![enter image description here](https://camo.githubusercontent.com/2fab855015885109a5cf59a810f9fe291e113473/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f5a5669665a3078336c6d334970725a6637436974777579374a656638766a344659784438796a2d4e31706f56524476726767306755464a5247684953777a6c3248696d4a736c784e69494248)](https://camo.githubusercontent.com/2fab855015885109a5cf59a810f9fe291e113473/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f5a5669665a3078336c6d334970725a6637436974777579374a656638766a344659784438796a2d4e31706f56524476726767306755464a5247684953777a6c3248696d4a736c784e69494248)
+[![enter image description here](https://camo.githubusercontent.com/503db570d42639bbe2873b1f1c484ef1dbd88e88/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f474f716c4a53746b3350655f2d5a755779586d5a4c4f6c32377241475f72474a4a416545774e52534a4452567178784f6434585f32534e7359474e5534767a355241673267366e436c355a6a)](https://camo.githubusercontent.com/503db570d42639bbe2873b1f1c484ef1dbd88e88/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f474f716c4a53746b3350655f2d5a755779586d5a4c4f6c32377241475f72474a4a416545774e52534a4452567178784f6434585f32534e7359474e5534767a355241673267366e436c355a6a)
+[![enter image description here](https://camo.githubusercontent.com/22ff7f4d3db22466f9b43b86e9cbb2fba95f1739/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f446c68796e6e355762656e72665a5a6c69794c7534504b773478455f4965756a4968666f73303332504f586a5f656c783941316a4e58676a2d50414d327a6d536677446c746c704151447669)](https://camo.githubusercontent.com/22ff7f4d3db22466f9b43b86e9cbb2fba95f1739/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f446c68796e6e355762656e72665a5a6c69794c7534504b773478455f4965756a4968666f73303332504f586a5f656c783941316a4e58676a2d50414d327a6d536677446c746c704151447669)
+
+# 3. putty를 이용한 원격접속
+
+## 1. SSH Enable
+
+putty를 이용하여 원격접속을 하기위해서는 먼저 SSH를 활성화 시켜줘야 한다. 터미널에서 `sudo raspi-config` 명령어를 입력한다. 여기서 5. Interfacing Options > P2 SSH 를 선택한다.
 
 
----
 
-<hr>
-<hr>
-<h1 id="라즈비안-설치">1. 라즈비안 설치</h1>
-<h2 id="준비물1.raspbian-image-file">1. 준비물1."Raspbian Image File</h2>
-<ol start="2">
-<li>Etcher Flash Program : Raspian Image File을 Micro SD card에 구워주는 프로그램</li>
-<li>Micro SD card</li>
-</ol>
-<h2 id="raspbian">2. Raspbian</h2>
-<p>[Raspbian](<br>
-&lt;<a href="https://www.raspberrypi.org/downloads/raspbian/">https://www.raspberrypi.org/downloads/raspbian/</a>) 링크로 들어가서 네모버튼을 클릭하여 ZIP 파일 다운로드 후 압축 해제를 한다.<img src="https://t1.daumcdn.net/cfile/tistory/99F5B94A5CC5672D23" alt=""></p>
-<h2 id="etcher-flashrogram">3. Etcher Flashrogram</h2>
-<p>cher Flash Program 다운로드](<a href="https://www.balena.io/etcher/">https://www.balena.io/etcher/</a>)로 들어가서 Download for Windows를 눌러 프로그램 다운로드를 한다.</p>
-<p>프로그램을 실행하면 다음과 같은 창이 뜨게 되는데 Select image 버튼을 클릭하여 다운받은 Raspbian Image File을 선택한다.<br>
-<img src="https://lh3.googleusercontent.com/OJrmiay_Bg-pS5ndXuOxJLts66m-MrHnzg6fQ2WEeIM3m41VutFE8tzUEVT40GbQm8ePhHD1MDfu" alt="enter image description here"></p>
-<p>enter image descrMicro SD Card가 삽입된 USB를 선택하고 Flash 버튼을 누르게 되면<br>
-<img src="https://lh3.googleusercontent.com/VbEAJaGesbnbb5zG0Tk_chEsrQpDrv8uHoDjCeTLBojoE_xyPhedbYlw34aaoKW2fXLnRitMxjPH" alt="enter image description here"></p>
-<p>Flash가 진행된다.<br>
-<img src="https://lh3.googleusercontent.com/zAAQSRIuLnmPF-IJaRYPdaGjNHEIF2_5AvJNOkSQM7Xps8dmSje9Hp_4fTya2T9rUnvbfReia5-5" alt="iption here"></p>
-<p>Flash가 완료되면 Micro SD Card를 Reader기에서 제거 후 Raspberrypi에 꽂아준다.<br>
-![enter image description here](&lt;bhttps://lh3.googleusercontent.com/MLg-wpzbFG_BAHkuUWAmZfl5LFu8VWzEMnRshCcKA7JnINuM853s5oSovFvFFGVLad4NshaKZc5h)</p>
-<hr>
-<h1 id="라즈비안-초기-설정">2. 라즈비안 초기 설정</h1>
-<h2 id="언어-설정">언어 설정</h2>
-<p>미국식 키보드를 이용해서 프로그래밍을 진행해기 위해선 언어를 먼저 설정해야 한다. 터미널에서 sudo raspi-config` 명령어를 입력하고 여기서 4. Localisation Options를 선택하고 I1. Change Locale을 선택한다.</p>
-<p><img src="https://lh3.googleusercontent.com/jf6NaNrnQz9V4mYSeHJSjWK40GugmB3xlclWZKfUV_h2_iCF8fs4b-fxwO4z0S6g5JFfBmc8P7en" alt="enter image description here"><img src="https://lh3.googleusercontent.com/XfPfOMYrP7adrWn8EAeDBpDaoVAa0qfOaBS3ZS8nvxNUBMM7rTcEmvdCotLz2NzTIF2CLF-FVln1" alt="enter image description here"><img src="https://lh3.googleusercontent.com/gT6ooJcsZuhneDBzonew2sxjV4FhNnrLTQPI58wt6ZmjwSXOprZbz-GkvdQXAgvZZ2FIy-xTrfif" alt="enter image description here"></p>
-<p>Change Locale 항목을 선택하고 들어가면 여러 언어의 옵션이 있는데 키보드의 방향키를 이용해서 en_GB,UTF-8 UTF-8, en_US.UTF-8 UTF-8을 스페이스바를 눌러서 선택해준다.<br>
-<img src="https://lh3.googleusercontent.com/16M1nwsvLevI_Aokd5qw8vlk8BhCX9bhgwZ0jKliTB7SB8BE7X1FrSUz6ZDOuCMJ7hm56e-7MlpA" alt="enter image description here"><br>
-<img src="https://lh3.googleusercontent.com/jsVu2IFNRHwoQz8aQLf7sDbBHuSqIe_8O2_CbkqMARf_fTw1MhWJuMiBSlP0fuvFxG1-g4Mkccc5" alt="enter image description here"></p>
-<p>엔터를 누르게 되면 기본 언어를 설정하는 창이 뜨게 된다. 여기서 en_US.UTF-8 UTF-8을 기본 언어로 선택하면 된다.</p>
-<p><img src="https://lh3.googleusercontent.com/ejXmuQrlp9kXu7UBV4Dc_Y-A1Ijlp8-lfpO7NBkqIGwmSptUU1baY1uSFreU8vXza_kra_l2wTk5" alt="enter image description here"></p>
-<p>다음으로 키보드 레이아웃 설정이다. 처음화면에서 4. Localisation Option을 선택한 후 I3. Change Keyboard Layout을 선택한다.</p>
-<p><img src="https://lh3.googleusercontent.com/XfPfOMYrP7adrWn8EAeDBpDaoVAa0qfOaBS3ZS8nvxNUBMM7rTcEmvdCotLz2NzTIF2CLF-FVln1" alt="enter image description here"><img src="https://lh3.googleusercontent.com/yW1cYpHzW3BrCbHk3Ej5HVjJb_WUubT2mUVqq5v8nv5Ct39Qu1nhi-2CUpMrjUkyCTaBNmsiwJy2" alt="enter image description here"></p>
-<p>Generic 105-key PC (intl.)을 선택하고 엔터를 눌러준다. 그리고 Korean - Korean (101/104 key compatible)을 선택한 후 마지막으로 No compose key를 선택한 후 엔터를 누르면 된다.<br>
-<img src="https://lh3.googleusercontent.com/ZVifZ0x3lm3IprZf7Citwuy7Jef8vj4FYxD8yj-N1poVRDvrgg0gUFJRGhISwzl2HimJslxNiIBH" alt="enter image description here"><br>
-<img src="https://lh3.googleusercontent.com/GOqlJStk3Pe_-ZuWyXmZLOl27rAG_rGJJAeEwNRSJDRVqxxOd4X_2SNsYGNU4vz5RAg2g6nCl5Zj" alt="enter image description here"><br>
-<img src="https://lh3.googleusercontent.com/Dlhynn5WbenrfZZliyLu4PKw4xE_IeujIhfos032POXj_elx9A1jNXgj-PAM2zmSfwDltlpAQDvi" alt="enter image description here"></p>
-<h1 id="putty를-이용한-원격접속">3. putty를 이용한 원격접속</h1>
-<h2 id="iption-herep">1\iption here"&gt;</h2>
-<h1 id="putty를-이용한-원격접속">3. putty를 이용한 원격접속</h1>
-<h2 id="ssh-enable">1. SSH Enable
-</h2><p>putty를 이용하여 원격접속을 하기위해서는 먼저 SSH를 활성화 시켜줘야 한다. 터미널에서 <code>sudo raspi-config</code> 명령어를 입력한다. 여기서 5. Interfacing Options &gt; P2 SSH 를 선택한다.</p>
-<p><img src="https://lh3.googleusercontent.com/SJTPs2tVLIfv9bVLgGdoILUZCrR-sYzmtvg6lYvpW39LIRgFHX06e9onA8-V-2pgFmoSEvMvzZBb" alt="enter image description here"><br>
-<img src="%22%3Ehttps://lh3.googleusercontent.com/M9h2WbNABtGxh2SdSwGTmFuZ3ZschxtcnwbQAHvjuG65ptL7GyLYCV4S_RxkbKhy_a-fX22VnNqp" alt="enter image description here"></p>
-<p>" alt="enter image descr다음과 같은 창이 뜨게되면 Yes를 선택하고 엔터를 눌러주면 SSH가 활성화 된다.<br>
-![enter image description herehttps://lh3.googleusercontent.com/B3tV66S6zyUZOmSRvAbo0KP12FbuVApuMUIMUgnwSXHbxVJ9sqLNS6OFSvJxVPvmnBhcoThtB6ue)<br>
-<img src="https://lh3.googleusercontent.com/FoVQaJ02u76ft6UxEsVkYizb5shGTTiI7aUBLnFoLGrMM2m8qWjZHwy9C_FWtcvoytV3OhiFXJ7e" alt="enter image description here"></p>
-<h2 id="ip-주소-확인">2. IP 주소 확인</h2>
-<p>ssh를 활성화를 했다면 IP 주소를 확인해야 한다. 터미널에서 `ifconfig 로 ip addr를 확인해야 한다. 유선으로 연결했다면 eth, 무선으로 연결했다면 wlan에서 inet을 확인한다.</p>
-<p><img src="https://lh3.googleusercontent.com/eg08NMFsTG3FBrJ5cbUp8z9nnVQ3N7ARzeK1u2ZC8NEMvYIjtsYX3jbPmMZ8gb9BhF-BmN98YYHm" alt="enter image description here"></p>
-<p>inet 값을 putty의 Host Name (or IP address) 칸에 입력한 후 Open을 누르면 로그인 창이 뜬다. 초기 ID와 Password는 pi / raspberry 이다. 아이디와 패스워드가 맞다면 아래처럼 실행이 된다.<br>
-<img src="https://lh3.googleusercontent.com/1k_mYhgaWKOfHSbIMc8Ylt4d-sM4iMl31vOv1_H_G-bWafIGhGLttapkKaq_hPqlQdTR1NUyVac8" alt="enter image description here"><br>
-<img src="https://lh3.googleusercontent.com/tCsRp2qNhb2_jAbGBRu3R7QihR7MmcCLj-J_FCM_iCogXZJRq7Pn4ROBxUdiWAA3eylWCzybFh6c" alt=""><br>
-<img src="https://lh3.googleusercontent.com/nFFNv6gPusc6xm20a9aQowCD-wYJ3dRJjf5SUbYFoLqPpn860Oufv721BeivlIPSs5iC6R_pJfc2" alt=""></p>
-<h2 id="고정-ip주소-할당">3. 고정 IP주소 할당</h2>
-<p>먼저 <code>netstat -nr</code> 명령어를 입력해 gateway 주소를 확인하고 <code>sudo nano /etc/dhcpcd.conf</code> 명령어를 입력한다.</p>
-<p><img src="https://lh3.googleusercontent.com/-2UQGauDdjacj47xbXc10XDzKD1UwuXxFFWhTudasB6e6rU_kxbH4sXKnI6ZAGD_jT_5qk-tK7oQ" alt="enter image description here"><br>
-<img src="https://lh3.googleusercontent.com/Szp4FImltjrTikLctZW-p_VntbXD9_lQc4qQ1SriMCPmPGd3UGXvstbwKi77VAqpPCVFMqPzDNCd" alt="enter image description here"></p>
-<p>static ip_address, static routers, static domain_name_servers의 주석을 지우고 하얗게 칠한 부분을 ip_address는 원하는 IP주소, domain_name_servers에는 <code>netstat -nr</code> 로 확인한 gateway 주소를 입력한다. 그 후 <code>sudo reboot</code> 를 이용해 재부팅한 후 <code>ifconfig</code> 로 다시 아이피를 확인해보면 설정한 IP가 할당되어 있다.</p>
-<h1 id="samba-서버-접속과-설치방법">4. Samba 서버 접속과 설치방법</h1>
-<h2 id="삼바samba란">1. 삼바(Samba)란?</h2>
-<p>Windows 운영체제를 사용하는 PC에서 Linux 또는 Unix 서버에 접속하여 파일이나 프린터를 공유하여 사용할 수 있도록 해주는 소프트웨어이다.</p>
-<h2 id="삼바-설치">2. 삼바 설치</h2>
-<p>터미널에서 <code>sudo apt-get update</code>을 입력하여 업데이트를 해준 다음 <code>sudo apt-get install samba samba-common-bin</code>명령어를 이용하여 설치한다.</p>
-<p><img src="https://lh3.googleusercontent.com/c5bFenfNTbJHpnagp-2DEFiFZZe-GEpE1rg9hrF-RGwxCw270AeED2Lz_idlfsyY3o8ca_hbnwnx" alt="enter image description here"></p>
-<h2 id="삼바-유저-추가-및-패스워드-설정">3. 삼바 유저 추가 및 패스워드 설정</h2>
-<p>설치가 완료되었다면 <code>sudo smbpasswd -a pi</code> 명령어를 입력해 비밀번호를 설정해야 한다. 설정한 다음 <code>sudo nano /etc/samba/smb.conf</code>로 들어간다.<br>
-<img src="https://lh3.googleusercontent.com/dH5xzGXhtb9WRwmnQr8aPiz7A-14xoHi3JBZj_ik3M3e00KhBgydRTgi9m85cTiJroPdXQyc0baQ" alt="enter image description here"></p>
-<p>smb.conf 파일에 들어온 후 다음과 같이 수정한다.<br>
-<img src="https://lh3.googleusercontent.com/4jAWtqjKE-X5YSvtDoWpzGQVMoZNC-DQno6_mmP4IOtBL8YEMsf5H9bdNjDdo0GWZD2F4GpanFgT" alt="enter image description here"></p>
-<blockquote>
-<p>comment = 유저 서버 설정에 대한 코멘트<br>
-path = 삼바 서버 접속 시 최초 화면<br>
-vaild user = 사용 가능한 유저<br>
-writable = 쓰기 허용 여부<br>
-read only = 읽기만 가능하게 하는 지<br>
-browable = 공유 폴더의 목록을 보여주는 옵션</p>
-</blockquote>
-<p>을 입력 후 에디터를 빠져나오고 <code>sudo service samba restart</code> 명령어를 입력해 서비스를 재실행 시켜준다. 만약 다음과 같이 <code>Failed to restart samba.service</code> 오류가 뜨게 된다면 <code>sudo service smbd restart</code> 명령어로 재실행 시켜준다.<img src="https://lh3.googleusercontent.com/4YE5_LFK2oRV34yGpW5Sf2BQB6GSuXgAVvos98rh0QhRFwIGxIHUB5bLA_wXGe0FTTMGgSsqX6i1" alt="enter image description here"></p>
-<h2 id="삼바-접속">4. 삼바 접속</h2>
-<p>라즈베리파이쪽에서 설정을 모두 했다면 윈도우 R키를 눌러 실행창에 들어간 후 다음과 같이 입력해준다.<br>
-<img src="https://lh3.googleusercontent.com/Wr1qgs0_9qOk2p5ExkQVJy77o9f90gXaXC2pDXIaWOuf9vPuF4R90dRXKc49ZRWI38bttnIJNb4q" alt="enter image description here"></p>
-<p>다음과 같은 창이 뜨게 된다면 설정해준 id, password를 입력해주면 된다.<br>
-<img src="https://lh3.googleusercontent.com/g-JyJI9n2DPWx0AK1lvsJ9la1IACYUU-YNtEbrvds9HBMUONMHgBoZcIs-7Wa38v8RzFixPcS3Qe" alt="enter image description here"></p>
-<h1 id="시간-동기화">5. 시간 동기화</h1>
-<p>자료출처</p>
-<ul>
-<li>워터마크, 라즈베리파이 시간 동기화, <a href="https://m.blog.naver.com/PostView.nhn?blogId=xhxhdwkd&amp;logNo=221146006051&amp;proxyReferer=https%3A%2F%2Fwww.google.com%2F">https://m.blog.naver.com/PostView.nhn?blogId=xhxhdwkd&amp;logNo=221146006051&amp;proxyReferer=https%3A%2F%2Fwww.google.com%2F</a></li>
-</ul>
-<p>라즈베리파이는 RTC(Real Time Clock) 기능이 없어 부팅시에 시간을 설정해줘야하는 단점이 있다. 부팅할때 마다 자동으로 시간을 동기화해주는 작업을 해줄 예정이다.</p>
-<p>먼저 <code>sudo apt-get update</code>를 실행해주고, 다음으로 <code>sudo apt-get install rdate</code> 를 입력해준다.</p>
-<p>설치가 완료됐으면 <code>sudo /usr/bin/rdate -s time.bora.net</code>을 입력 후 <code>date</code>를  실행해 확인해보면 시간이 제대로 설정된것을 볼 수 있다.<br>
-<img src="https://lh3.googleusercontent.com/S0T4jHt2bX6vYciF_7S24Cq9Lznd2QvAY-thLV_uwHUXAuQIsiP8RWNU6JYJyGd3f5lBP0vDCcmC" alt="enter image description here"></p>
-<p>부팅 시 마다 위와 같은 실행을 자동으로 해주기 위해 <code>sudo nano /etc/rc.local</code> 로 파일을 열어 전에 했던 명령어들을 아래와 같이 입력해준다.<br>
-<img src="https://lh3.googleusercontent.com/q7YmMedXX1piF7CbKYj_W5eNJJGEnii8NtscbNaiC4orCBDmjXeg51wdSjwgE7PNdkJoDOKR1YOp" alt="enter image description here"></p>
-<p>에디터를 빠져나와 재부팅을 해보면 다음과 같이 제대로 적용된 것을 확인할 수 있다.<br>
-<img src="https://lh3.googleusercontent.com/Gn_tvaNecORO-3-7gE8DSg_ZsHPx86ErsdOoGHwTJ4-RhdZ4mXPThRgUyjR39UIdIhSo71wsNMB0" alt="enter image description here"></p>
-<h1 id="wiringpi를-이용한-gpio-프로그래밍">6. wiringPi를 이용한 GPIO 프로그래밍</h1>
-<h2 id="wiringpi">1. wiringPi</h2>
-<p>wiringPi는 라즈베리파이에서 사용하는 GPIO 사용을 위한 C언어 라이브러리다. wiringPi를 이용하면 아두이노같은 문법으로 사용할 수 있다.</p>
-<h2 id="설치">2. 설치</h2>
-<p>터미널에 <code>git clone git://git.drogon.net/wiringPi</code>를 입력해서 wiringPi 소스코드를 다운받은 후 빌드해서 설치하면 된다.</p>
-<p><img src="https://lh3.googleusercontent.com/LH21Bo7DRlZRI0oDJuSYczVzWceWiaNQGdkl940PRZ15RYeqAj5CfAe4R4p-pZVzLKwpoU3ZYDKt" alt="enter image description here"><br>
-<img src="https://lh3.googleusercontent.com/UKLjeH_l7PQJPNLGLUijVbHVsZ7Uuna3Lf_0zSXXDJmNWExsN27NlovcbUn64zqhm9tJ6TFfWuqy" alt="enter image description here"><br>
-<img src="https://lh3.googleusercontent.com/9EE8_7GQQ85nMEqJ1-3btKYc1ql7NfMfrpIZwvB7LO0myj2l_fqoC6ehe4mGmdY-bzGtoCYLB8Mh" alt="enter image description here"></p>
-<p>정상적으로 설치가 완료되었다면 gpio readall 명령어를 입력하면 다음과 같이 본인 파이의 gpio map이 출력된다.<br>
-<img src="https://lh3.googleusercontent.com/3uFqBq8KYX30ISB98RvvAEc2ND3tPthxGfsItACH5Mv4bpod4M1phvQ-pgBlx9w3qZZtmaKFeyOt" alt="enter image description here"></p>
-<p>여기서 Physical은 파이 우측 상단에 있는 핀 배열이고 그에 해당하는 이름들, 우리가 사용되는 wPi가 있다. wiringPi를 이용하여 프로그래밍할때는 Physical의 번호가 아닌 wPi의 번호를 이용해 프로그래밍한다.</p>
-<h2 id="wiringpi를-이용한-프로그래밍">3. wiringPi를 이용한 프로그래밍</h2>
-<ul>
-<li><a href="https://github.com/psy1064/RaspberryPi_Study/blob/master/Sensor/dht11.cpp">dht11</a>
-<ul>
-<li><a href="https://www.mouser.com/ds/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf">dht11_datasheet</a>" alt=""&gt;</li>
-</ul>
-</li>
-</ul>
+[![enter image description here](https://camo.githubusercontent.com/2e452dac68e2888ca7b71125e5034ba49f37bb17/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f534a5450733274564c4966763962564c6747646f494c555a4372522d73597a6d747667366c5976705733394c495267464858303665396f6e41382d562d327067466d6f5345764d767a5a4262)](https://camo.githubusercontent.com/2e452dac68e2888ca7b71125e5034ba49f37bb17/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f534a5450733274564c4966763962564c6747646f494c555a4372522d73597a6d747667366c5976705733394c495267464858303665396f6e41382d562d327067466d6f5345764d767a5a4262)
 
+다음과 같은 창이 뜨게되면 Yes를 선택하고 엔터를 눌러주면 SSH가 활성화 된다.
+
+![img](https://k.kakaocdn.net/dn/b7iJCP/btqwDIowf3z/WXfHzRTiTUSsN3GKLuBKjK/img.png)
+
+![img](https://k.kakaocdn.net/dn/bH4rZK/btqwD3eSrWS/WQAQyV1HEOhvKijTlpTbA1/img.png)
+
+
+
+## 2. IP 주소 확인
+
+ssh를 활성화를 했다면 IP 주소를 확인해야 한다. 터미널에서 `ifconfig 로 ip addr를 확인해야 한다. 유선으로 연결했다면 eth, 무선으로 연결했다면 wlan에서 inet을 확인한다.
+
+[![enter image description here](https://camo.githubusercontent.com/d113e5141bbec3c9ad4a6db3b0fd42070b669739/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f656730384e4d46735447334642724a3563625570387a396e6e5651334e3741527a654b3175325a43384e454d7659496a74735958336a62506d4d5a386762394268462d426d4e39385959486d)](https://camo.githubusercontent.com/d113e5141bbec3c9ad4a6db3b0fd42070b669739/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f656730384e4d46735447334642724a3563625570387a396e6e5651334e3741527a654b3175325a43384e454d7659496a74735958336a62506d4d5a386762394268462d426d4e39385959486d)
+
+inet 값을 putty의 Host Name (or IP address) 칸에 입력한 후 Open을 누르면 로그인 창이 뜬다. 초기 ID와 Password는 pi / raspberry 이다. 아이디와 패스워드가 맞다면 아래처럼 실행이 된다.
+[![enter image description here](https://camo.githubusercontent.com/68c78ee81f3d3a6a82b6c60ce4a7e3d6d82f7373/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f316b5f6d59686761574b4f66485362494d6338596c7434642d734d34694d6c3331764f76315f485f472d62576166494768474c747461706b4b61715f6850716c51645452314e557956616338)](https://camo.githubusercontent.com/68c78ee81f3d3a6a82b6c60ce4a7e3d6d82f7373/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f316b5f6d59686761574b4f66485362494d6338596c7434642d734d34694d6c3331764f76315f485f472d62576166494768474c747461706b4b61715f6850716c51645452314e557956616338)
+[![img](https://camo.githubusercontent.com/9d7026ee755db80eeaf94613d2fb8e08b01606ca/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f744373527032714e6862325f6a41624742527533523751696852374d6d63434c6a2d4a5f46434d5f69436f67585a4a527137506e34524f42785564695741413365796c57437a796246683663)](https://camo.githubusercontent.com/9d7026ee755db80eeaf94613d2fb8e08b01606ca/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f744373527032714e6862325f6a41624742527533523751696852374d6d63434c6a2d4a5f46434d5f69436f67585a4a527137506e34524f42785564695741413365796c57437a796246683663)
+[![img](https://camo.githubusercontent.com/0adbf70424e00bbdb1ecf2862af45f820aeafda5/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f6e46464e7636675075736336786d3230613961516f7743442d77594a3364524a6a663553556259466f4c7150706e3836304f756676373231426569766c4950537335694336525f704a666332)](https://camo.githubusercontent.com/0adbf70424e00bbdb1ecf2862af45f820aeafda5/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f6e46464e7636675075736336786d3230613961516f7743442d77594a3364524a6a663553556259466f4c7150706e3836304f756676373231426569766c4950537335694336525f704a666332)
+
+## 3. 고정 IP주소 할당
+
+먼저 `netstat -nr` 명령어를 입력해 gateway 주소를 확인하고 `sudo nano /etc/dhcpcd.conf` 명령어를 입력한다.
+
+[![enter image description here](https://camo.githubusercontent.com/9432665ac46a48eec314393bf6249909d9e1f1b3/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f2d32555147617544646a61636a343778625863313058447a4b443155777558784646576854756461734236653672555f6b7862483473584b6e49365a4147445f6a545f35716b2d744b376f51)](https://camo.githubusercontent.com/9432665ac46a48eec314393bf6249909d9e1f1b3/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f2d32555147617544646a61636a343778625863313058447a4b443155777558784646576854756461734236653672555f6b7862483473584b6e49365a4147445f6a545f35716b2d744b376f51)
+[![enter image description here](https://camo.githubusercontent.com/d50cc077c489069952615451c5ef9d65e4012415/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f537a703446496d6c746a7254696b4c63745a572d705f566e74625844395f6c5163347151315372694d43506d5047643355475876737462774b69373756417170504356464d71507a444e4364)](https://camo.githubusercontent.com/d50cc077c489069952615451c5ef9d65e4012415/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f537a703446496d6c746a7254696b4c63745a572d705f566e74625844395f6c5163347151315372694d43506d5047643355475876737462774b69373756417170504356464d71507a444e4364)
+
+static ip_address, static routers, static domain_name_servers의 주석을 지우고 하얗게 칠한 부분을 ip_address는 원하는 IP주소, domain_name_servers에는 `netstat -nr` 로 확인한 gateway 주소를 입력한다. 그 후 `sudo reboot` 를 이용해 재부팅한 후 `ifconfig` 로 다시 아이피를 확인해보면 설정한 IP가 할당되어 있다.
+
+# 4. Samba 서버 접속과 설치방법
+
+## 1. 삼바(Samba)란?
+
+Windows 운영체제를 사용하는 PC에서 Linux 또는 Unix 서버에 접속하여 파일이나 프린터를 공유하여 사용할 수 있도록 해주는 소프트웨어이다.
+
+## 2. 삼바 설치
+
+터미널에서 `sudo apt-get update`을 입력하여 업데이트를 해준 다음 `sudo apt-get install samba samba-common-bin`명령어를 이용하여 설치한다.
+
+[![enter image description here](https://camo.githubusercontent.com/5576f8707e56e1974194d4ab109a70fd27fd64e8/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f63356246656e664e54624a48706e6167702d3244454669465a5a652d47457045317267396872462d52477778437732373041654544324c7a5f69646c66737959336f3863615f68626e776e78)](https://camo.githubusercontent.com/5576f8707e56e1974194d4ab109a70fd27fd64e8/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f63356246656e664e54624a48706e6167702d3244454669465a5a652d47457045317267396872462d52477778437732373041654544324c7a5f69646c66737959336f3863615f68626e776e78)
+
+## 3. 삼바 유저 추가 및 패스워드 설정
+
+설치가 완료되었다면 `sudo smbpasswd -a pi` 명령어를 입력해 비밀번호를 설정해야 한다. 설정한 다음 `sudo nano /etc/samba/smb.conf`로 들어간다.
+[![enter image description here](https://camo.githubusercontent.com/d12b03667869eadea689ef09e8434c2e9753b6fd/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f644835787a4758687462395752776d6e5172386150697a37412d3134786f4869334a425a6a5f696b334d336530304b684267796452546769396d38356354694a726f50645851796330626151)](https://camo.githubusercontent.com/d12b03667869eadea689ef09e8434c2e9753b6fd/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f644835787a4758687462395752776d6e5172386150697a37412d3134786f4869334a425a6a5f696b334d336530304b684267796452546769396d38356354694a726f50645851796330626151)
+
+smb.conf 파일에 들어온 후 다음과 같이 수정한다.
+[![enter image description here](https://camo.githubusercontent.com/f75b7cf8cdfeec5cc4cc85adc39b9152e5208f87/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f346a415774716a4b452d583559537674446f57707a4751564d6f5a4e432d44516e6f365f6d6d5034494f74424c3859454d736635483962644e6a44646f3047575a443246344770616e466754)](https://camo.githubusercontent.com/f75b7cf8cdfeec5cc4cc85adc39b9152e5208f87/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f346a415774716a4b452d583559537674446f57707a4751564d6f5a4e432d44516e6f365f6d6d5034494f74424c3859454d736635483962644e6a44646f3047575a443246344770616e466754)
+
+> comment = 유저 서버 설정에 대한 코멘트
+> path = 삼바 서버 접속 시 최초 화면
+> vaild user = 사용 가능한 유저
+> writable = 쓰기 허용 여부
+> read only = 읽기만 가능하게 하는 지
+> browable = 공유 폴더의 목록을 보여주는 옵션
+
+을 입력 후 에디터를 빠져나오고 `sudo service samba restart` 명령어를 입력해 서비스를 재실행 시켜준다. 만약 다음과 같이 `Failed to restart samba.service` 오류가 뜨게 된다면 `sudo service smbd restart` 명령어로 재실행 시켜준다.
+
+[![enter image description here](https://camo.githubusercontent.com/fa1a3f1c5aa05e29b5ed435d35da45a9c8358b08/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f345945355f4c464b326f5256333479477057355366324251423647537558674156766f73393872683051685246774947784948554235624c415f77584765304654544d476753737158366931)](https://camo.githubusercontent.com/fa1a3f1c5aa05e29b5ed435d35da45a9c8358b08/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f345945355f4c464b326f5256333479477057355366324251423647537558674156766f73393872683051685246774947784948554235624c415f77584765304654544d476753737158366931)
+
+## 4. 삼바 접속
+
+라즈베리파이쪽에서 설정을 모두 했다면 윈도우 R키를 눌러 실행창에 들어간 후 다음과 같이 입력해준다.
+[![enter image description here](https://camo.githubusercontent.com/1646b341f0caf0c661d602a5d42a200de4b28c4c/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f577231716773305f39714f6b32703545786b51564a7937376f396639306758615843327044584961574f75663976507546345239306452584b6334395a52574933386274746e494a4e623471)](https://camo.githubusercontent.com/1646b341f0caf0c661d602a5d42a200de4b28c4c/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f577231716773305f39714f6b32703545786b51564a7937376f396639306758615843327044584961574f75663976507546345239306452584b6334395a52574933386274746e494a4e623471)
+
+다음과 같은 창이 뜨게 된다면 설정해준 id, password를 입력해주면 된다.
+[![enter image description here](https://camo.githubusercontent.com/9bd65442ed006d3adec103df2a843c744e0cd3bc/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f672d4a794a49396e324450577830414b316c76734a396c61314941435955552d594e744562727664733948424d554f4e4d4867426f5a6349732d37576133387638527a466978506353335165)](https://camo.githubusercontent.com/9bd65442ed006d3adec103df2a843c744e0cd3bc/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f672d4a794a49396e324450577830414b316c76734a396c61314941435955552d594e744562727664733948424d554f4e4d4867426f5a6349732d37576133387638527a466978506353335165)
+
+# 5. 시간 동기화
+
+자료출처
+
+- 워터마크, 라즈베리파이 시간 동기화, https://m.blog.naver.com/PostView.nhn?blogId=xhxhdwkd&logNo=221146006051&proxyReferer=https%3A%2F%2Fwww.google.com%2F
+
+라즈베리파이는 RTC(Real Time Clock) 기능이 없어 부팅시에 시간을 설정해줘야하는 단점이 있다. 부팅할때 마다 자동으로 시간을 동기화해주는 작업을 해줄 예정이다.
+
+먼저 `sudo apt-get update`를 실행해주고, 다음으로 `sudo apt-get install rdate` 를 입력해준다.
+
+설치가 완료됐으면 `sudo /usr/bin/rdate -s time.bora.net`을 입력 후 `date`를 실행해 확인해보면 시간이 제대로 설정된것을 볼 수 있다.
+[![enter image description here](https://camo.githubusercontent.com/5c1373d61a4f5548379cec6d3da54de02fdb21c6/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f533054346a48743262583676596369465f375332344371394c7a6e6432517641592d74684c565f7577485558417551497369503852574e55364a594a7947643366356c425030764443636d43)](https://camo.githubusercontent.com/5c1373d61a4f5548379cec6d3da54de02fdb21c6/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f533054346a48743262583676596369465f375332344371394c7a6e6432517641592d74684c565f7577485558417551497369503852574e55364a594a7947643366356c425030764443636d43)
+
+부팅 시 마다 위와 같은 실행을 자동으로 해주기 위해 `sudo nano /etc/rc.local` 로 파일을 열어 전에 했던 명령어들을 아래와 같이 입력해준다.
+[![enter image description here](https://camo.githubusercontent.com/11420af888428378f1b78166130d372d38180cfe/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f7137596d4d65645858317069463743624b596a5f5735654e4a4a47456e6969384e747363624e616943346f724342446d6a58656735317764536a77674537504e646b4a6f444f4b5231594f70)](https://camo.githubusercontent.com/11420af888428378f1b78166130d372d38180cfe/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f7137596d4d65645858317069463743624b596a5f5735654e4a4a47456e6969384e747363624e616943346f724342446d6a58656735317764536a77674537504e646b4a6f444f4b5231594f70)
+
+에디터를 빠져나와 재부팅을 해보면 다음과 같이 제대로 적용된 것을 확인할 수 있다.
+[![enter image description here](https://camo.githubusercontent.com/86ed856ad0c7f063833d064e0cbd4e9fad241752/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f476e5f7476614e65634f524f2d332d376745384453675f5a734850783836457273644f6f474877544a342d5268645a346d58505468526755796a5233395549644968536f373177734e4d4230)](https://camo.githubusercontent.com/86ed856ad0c7f063833d064e0cbd4e9fad241752/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f476e5f7476614e65634f524f2d332d376745384453675f5a734850783836457273644f6f474877544a342d5268645a346d58505468526755796a5233395549644968536f373177734e4d4230)
+
+# 6. wiringPi를 이용한 GPIO 프로그래밍
+
+## 1. wiringPi
+
+wiringPi는 라즈베리파이에서 사용하는 GPIO 사용을 위한 C언어 라이브러리다. wiringPi를 이용하면 아두이노같은 문법으로 사용할 수 있다.
+
+## 2. 설치
+
+터미널에 `git clone git://git.drogon.net/wiringPi`를 입력해서 wiringPi 소스코드를 다운받은 후 빌드해서 설치하면 된다.
+
+[![enter image description here](https://camo.githubusercontent.com/ad9930b3891d7d02bd5b84116955c6fbdbee2714/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f4c483231426f3744526c5a5249306f444a755359637a567a5763655769614e5147646b6c39343050525a313552596571416a3543664165345234702d705a567a4c4b77706f55335a59444b74)](https://camo.githubusercontent.com/ad9930b3891d7d02bd5b84116955c6fbdbee2714/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f4c483231426f3744526c5a5249306f444a755359637a567a5763655769614e5147646b6c39343050525a313552596571416a3543664165345234702d705a567a4c4b77706f55335a59444b74)
+[![enter image description here](https://camo.githubusercontent.com/1c504e5aa0cd9758ad74b6fd79ba948807373892/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f554b4c6a65485f6c3750514a504e4c474c55696a56624856735a3755756e61334c665f307a535858444a6d4e574578734e32374e6c6f766362556e36347a71686d39744a3654466657757179)](https://camo.githubusercontent.com/1c504e5aa0cd9758ad74b6fd79ba948807373892/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f554b4c6a65485f6c3750514a504e4c474c55696a56624856735a3755756e61334c665f307a535858444a6d4e574578734e32374e6c6f766362556e36347a71686d39744a3654466657757179)
+[![enter image description here](https://camo.githubusercontent.com/9d1b4bf23494affe02a8786854793252f6565aeb/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f394545385f3747515138356e4d45714a312d3362744b596331716c374e664d667270495a777642374c4f306d796a326c5f66716f4336656865346d476d64592d627a47746f43594c42384d68)](https://camo.githubusercontent.com/9d1b4bf23494affe02a8786854793252f6565aeb/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f394545385f3747515138356e4d45714a312d3362744b596331716c374e664d667270495a777642374c4f306d796a326c5f66716f4336656865346d476d64592d627a47746f43594c42384d68)
+
+정상적으로 설치가 완료되었다면 gpio readall 명령어를 입력하면 다음과 같이 본인 파이의 gpio map이 출력된다.
+[![enter image description here](https://camo.githubusercontent.com/04920d4c902af83ab55404e21c8bfe26822719e0/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f337546714271384b595833304953423938527676414563324e443374507468784766734974414348354d763462706f64344d31706876512d7067426c78397733715a5a746d614b4665794f74)](https://camo.githubusercontent.com/04920d4c902af83ab55404e21c8bfe26822719e0/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f337546714271384b595833304953423938527676414563324e443374507468784766734974414348354d763462706f64344d31706876512d7067426c78397733715a5a746d614b4665794f74)
+
+여기서 Physical은 파이 우측 상단에 있는 핀 배열이고 그에 해당하는 이름들, 우리가 사용되는 wPi가 있다. wiringPi를 이용하여 프로그래밍할때는 Physical의 번호가 아닌 wPi의 번호를 이용해 프로그래밍한다.
+
+## 3. wiringPi를 이용한 프로그래밍
+
+- dht11
+  - [dht11_datasheet](https://www.mouser.com/ds/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf)
+
+- pms7003
+  - [pms7003_datasheet](https://eleparts.co.kr/data/goods_old/data/DS_PMS7003.pdf)
