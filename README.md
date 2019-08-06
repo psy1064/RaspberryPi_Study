@@ -136,15 +136,12 @@ smb.conf 파일에 들어온 후 다음과 같이 수정한다.
 
 # 5. 시간 동기화
 
-자료출처
-
-- 워터마크, 라즈베리파이 시간 동기화, https://m.blog.naver.com/PostView.nhn?blogId=xhxhdwkd&logNo=221146006051&proxyReferer=https%3A%2F%2Fwww.google.com%2F
-
 라즈베리파이는 RTC(Real Time Clock) 기능이 없어 부팅시에 시간을 설정해줘야하는 단점이 있다. 부팅할때 마다 자동으로 시간을 동기화해주는 작업을 해줄 예정이다.
 
 먼저 `sudo apt-get update`를 실행해주고, 다음으로 `sudo apt-get install rdate` 를 입력해준다.
 
 설치가 완료됐으면 `sudo /usr/bin/rdate -s time.bora.net`을 입력 후 `date`를 실행해 확인해보면 시간이 제대로 설정된것을 볼 수 있다.
+
 [![enter image description here](https://camo.githubusercontent.com/5c1373d61a4f5548379cec6d3da54de02fdb21c6/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f533054346a48743262583676596369465f375332344371394c7a6e6432517641592d74684c565f7577485558417551497369503852574e55364a594a7947643366356c425030764443636d43)](https://camo.githubusercontent.com/5c1373d61a4f5548379cec6d3da54de02fdb21c6/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f533054346a48743262583676596369465f375332344371394c7a6e6432517641592d74684c565f7577485558417551497369503852574e55364a594a7947643366356c425030764443636d43)
 
 부팅 시 마다 위와 같은 실행을 자동으로 해주기 위해 `sudo nano /etc/rc.local` 로 파일을 열어 전에 했던 명령어들을 아래와 같이 입력해준다.
