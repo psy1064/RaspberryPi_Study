@@ -1,3 +1,4 @@
+// PMS7003 transport protocol-active mode
 #include <iostream>
 #include <errno.h>
 #include <string.h>
